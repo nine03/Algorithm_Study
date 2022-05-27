@@ -76,9 +76,9 @@ c. stdIn.nextInt()가 호출되면 키보드로 입력한 정수값을 얻을 �
 
 +,- 등의 연산 기호를 연산자(operator)라고 한다. 그리고 연산의 대상이 되는 것을 피연산자(operand)라고 부른다. 
 
-
-
-
+단항 연산자(unary operator) 피연산자 1개, ex) a++ <br>
+2항 연산자(binary operator) 피연산자 2개  ex) a < b <br>
+3항 연산자(ternary operator) 피연산자 3개 ex) a ? b : c <br>
 
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
