@@ -79,6 +79,18 @@ c. stdIn.nextInt()가 호출되면 키보드로 입력한 정수값을 얻을 �
 단항 연산자(unary operator) 피연산자 1개, ex) a++ <br>
 2항 연산자(binary operator) 피연산자 2개  ex) a < b <br>
 3항 연산자(ternary operator) 피연산자 3개 ex) a ? b : c <br>
+<br>
+
+조건 연산자(conditional operator) ?:는 자바에서 유일한 3항 연산자이다. 식 a ? b : c는 a가 true이면 b를 반환하고 false이면 c를 반환한다. 
+
+```
+a = (x > y) ? x : y;
+System.out.println((c == 0) ? "c는 0" : "c는 0이 아님");
+```
+
+첫 번째 코드에서는 x > y가 true인 경우 x를 반환한다. <br>
+두 번째 코드에서는 c == 0이 true인 경우 "c는0"이라는 문자열을 반환한다. <br>
+
 
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
