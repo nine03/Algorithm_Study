@@ -65,4 +65,5 @@ double[] x = new double[7];
 배열 본체는 배열 초기화(array initializer)를 사용하면 배열 본체의 생성과 동시에 각 요소의 초기화가 가능하다. 
 
 
+
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
