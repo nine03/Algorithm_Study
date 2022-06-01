@@ -64,6 +64,73 @@ double[] x = new double[7];
 배열의 요솟값을 초기화하며 배열 선언하기 <br>
 배열 본체는 배열 초기화(array initializer)를 사용하면 배열 본체의 생성과 동시에 각 요소의 초기화가 가능하다. 
 
+배열의 복제(클론) <br>
+배열의 복제는 아래처럼 clone메서드를 호출하여 쉽게 만들 수 있다.
+
+```
+배열 이름.clone() // 배열의 복제
+```
+
+접근 제한자 <br>
+멤버는 객체 자신만의 속성이자 특징이므로 외부에 공개하는 것이 반드시 좋은 것은 아니다. 그래서 객체의 멤버에 대한 접근을 제한할 때가 있는데, 이를 자바에서는 접근 제한자라 한다.
+
+제한자 종류 <br>
+1. public : 모든 접근 허용 
+2. protected : 같은 패키지(폴더)의 객체, 상속 관계의 객체 허용
+3. default : 같은 패키지(폴더)의 객체 허용
+4. private : 현재의 객체 안에서만 허용
+
+접근 제한자 사용 <br>
+1. 클래스 : public, default
+2. 생성자 : public, protected, default, private
+3. 멤버 변수 : public, protected, default, private
+4. 멤버 메서드 : public, protected, default, private
+5. 지역 변수 : 접근 제한자를 사용할 수 없음
+
+난수를 생성하는 Random 클래스의 메서드 <br>
+
+|구하는 식(메서드 호출)|자료형|생성한 값의 범위|
+|------|------|------|
+|nextBoolean()|boolean|true 또는 false|
+|nextInt()|int|-2147483648 ~ +2147483647|
+|nextInt(n)|int|0 ~ n -1|
+|nextLong()|long|-9223372036854775808 ~ +923372036854775807|
+|nextDouble()|double|0.0 이상 1.0 미만|
+|nextFloat()|float|0.0 이상 1.0 미만|
+
+배열 요소룰 역순으로 정렬하기 <br> 
+
+요소 개수가 n인 배열을 처리하는 과정을 변수 i의 값을 0,1, ...로 증가하는(increment) 방법을 통해 나타낼 수 있다. <br>
+1. 왼쪽 요소의 인덱스 ... i  n이 7이면 0 -> 1 -> 2
+2. 오른쪽 요소의 인덱스 ... n - i -1  n이 7이면 6 -> 5 -> 4
+
+요소 개수가 n인 배열 요소를 역순으로 정렬하는 알고리즘 <br>
+
+```
+for(int = 0; i < n / 2; i++) // a[i]와 a[n - i - 1]의 값을 교환
+```
+
+두 값의 교환 <br>
+배열의 역순 정렬은 요소 교환이 총 n/2회 필요하다. 
+
+```
+1. x 값을 t에 보관  x -> t
+2. y값을 x에 대입  y -> x  (x와 y의 값을 교환)
+3. t에 보관한 처음 x값을 y에 대입  t -> y
+
+t = a[idx1];
+a[idx1] = a[idx2];
+a[idx2] = t;
+
+// 배열 요소a[idx1]과 a[idx2]의 값을 교환
+static void swap(int[] a, int idx1, int idx2) {
+  int t = a[idx1];
+  a[idx1] = a[idx2];
+  a[idx2] = t;
+  a[idx1]과 a[idx2]의 값을 교환 
+}
+```
+
 
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
