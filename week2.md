@@ -249,5 +249,7 @@ int[][] a = {{1,2,3,4},{5,6,7}};
 int[][] b = a.clone();
 ```
 
+화장 for문 <br>
+for문을 기본 for문(basic for statement)이라고 한다. 또 다른 for문인 확장for문(enhance for statement)을 사용하면 배열의 스캔을 매우 간단하게 구현할 수 있다.
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
