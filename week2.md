@@ -261,6 +261,21 @@ iterator와 같은 방법으로 스캔할 수 있다. <br>
 클래스 <br>
 클래스는 임의의 데이터형을 자유로이 조합하여 만들 수 있는 자료구조이다.
 
+```
+// 클래스 XYZ 
+class XYZ{
+   int x; // x는 int형 필드
+   long y; // y는 long형 필드
+   double z; // z는 double형 필드 
+}
 
+XYZ a; // XYZ형의 클래스형 변수a 선언
+a = new XYZ(); // XYZ형의 클래스 인스턴스(실체)를 생성
+
+XYZ a = new XYZ(); // 변수와 인스턴스 생성을 한꺼번에 선언 
+```
+
+공개 클래스 <br>
+클래스 접근 제한자 public을 붙여 선언한 클래스로, 다른 패키지에서 사용할 수 있는 공개 클래스(public class)이다.
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
