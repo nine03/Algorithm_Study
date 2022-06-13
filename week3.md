@@ -80,5 +80,101 @@ static int seqSearch(int[] a, int n, int key) {
 
 복잡도를 표기할 때 사용하는 O는 Order에서 따온 것으로, O(n)은 'O - n', 'Order n', 'n의 Order'라고 읽는다.
 
+컴퓨터에게 n/2과 n의 차이는 크지 않다. <br>
+n/2번 실행했을 때 복잡도를 O(n/2)가 아닌 O(n)으로 표현하는 이유는 n의 값이 무한히 커진다고 가정했을 때, 그 값의 차이가 무의미해지기 때문이다. 마찬가지로 100번만 실행하는 경우에도 O(100)이 아닌 O(1)로 표시한다. 컴퓨터가 100번을 계싼하는 시간과 1번만 계산하는 시간의 차이는 사람이 느낄 수 없을 정도로 굉장히 작다.
+
+|단계|실행 횟수|복잡도|
+|------|---|---|
+|1|1|O(1)|
+|2|n/2|O(n)|
+|3|n/2|O(n)|
+|4|1|O(1)|
+|5|n/2|O(n)|
+|6|1|O(1)|
+
+n이 점점 커지면 O(n)에 필요한 계싼 시간은 n에 비례하여 점점 길어진다. 이와달리 O(1)에 필요한 계산 시간은 변하지 않는다. 일반적으로 O(f(n))과 O(g(n))의 복잡도를 계싼하는 방법은 아래와 같다.
+
+```
+O(f(n)) + O(g(n)) = O(max(f(n), g(n))) // max(a,b)는 a와 b 가운데 큰 쪽을 나타내는 메서드이다.
+```
+
+2개 이상의 복잡도로 구성된 알고리즘은 전체 복잡도는 차원이 더 높은 쪽의 복잡도를 우선시한다. 둘아 아니라 셋 이상의 계산으로 구성된 알고리즘도 마찬가지이다. 전체 복잡도는 차원이 가장 높은 복잡도를 선택한다. 그러므로 선형 검색 알고리즘의 복잡도를 구하면 아래처럼 O(n)이 된다. 
+
+```
+O(1) + O(n) + O(n) + O(1) + O(n) + O(1)  = O(max(1, n, n, 1, n, 1)) = O(n) 
+```
+
+이진 검색의 시간 복잡도 
+```
+static int binSearch(int[] a,int n, int key) {
+  int pl = 0; // 검색 범위 맨 앞의 인덱스 1
+  int pr = n - 1; // 검색 범위 맨 끝의 인덱스 2
+  
+  do {
+    int pc = (pl + pr) / 2; // 중앙 요소의 인덱스 3
+    if(a[pc] == key) // 4
+      return pc; // 검색 성공 5
+    else if(a[pc] < key) // 6
+      pl = pc + 1; // 검색 범위를 뒤쪽 반으로 좁힘 7
+    else 
+      pr = pc - 1; // 검색 범위를 앞쪽 반으로 좁힘 8
+  } while(pl <= pr); // 9
+    return -1; // 검색 실패 10
+}
+```
+
+|단계|실행 횟수|복잡도|
+|------|---|---|
+|1|1|O(1)|
+|2|1|O(1)|
+|3|log n|O(log n)|
+|4|log n|O(log n)|
+|5|1|O(1)|
+|6|log n|O(log n)|
+|7|log n|O(log n)|
+|8|log n|O(log n)|
+|9|log n|O(log n)|
+|10|1|O(1)|
+
+이진 검색 알고리즘 복잡도를 구하면 아래처럼 O(log n)을 얻을 수 있다. <br>1
+ ```
+ O(1) + O(1) + O(log n) + O(log n) + O(1) + O(log n) + ... + O(1) = O(log n)
+ ```
+ 
+ O(n)과 O(log n)은 O(1)보다 크다. <br>
+ 복잡도의 대소 관계를 그림으로 나타내면 다음과같다. <br>
+ ![11122](https://user-images.githubusercontent.com/60682087/173320403-686d7236-7d57-45e6-a9d4-e7c737964bd6.JPG)
+ 
+ Arrays.binarySearch에 의한 이진 검색 <br>
+ Java는 배열에서 이진 검색을 하는 메서드를 표준 라이브러리로 제공한다. 이진 검색 표준 라이브러리의 메서드로는 java.util.Arrays 클래스의 binartSearch 메서드가 있다. 
+ 
+ 장점 <br>
+ 1. 이진 검색 메서드를 직접 코딩할 필요가 없다.
+ 2. 모든 자료형 배열에서 검색할 수 있다.
+ 
+ binarySearch 메서드는 오름차순으로 정렬된 배열 a를 가정하고, 키 값이 key인 요소를 이진 검색한다. binarySearch 메서드는 자료형에 따라 9 가지 방법으로 오버로딩(overloading)되어 있다.
+ 
+ ```
+ 1. static int binarySearch(byte[] a, byte key)
+ 2. static int binarySearch(char[] a, char key)
+ 3. static int binarySearch(double[] a, double key)
+ 4. static int binarySearch(float[] a, float key)
+ 5. static int binarySearch(int[] a, int key)
+ 6. static int binarySearch(long[] a, long key)
+ 7. static int binarySearch(short[] a, short key)
+ 8. static int binarySearch(Object[] a, Object key)
+ 9. static <T> int binarySearch(T[] a, T key, Comparator <? super T > c)
+ ```
+ 
+ 검색에 성공한 경우 <br>
+ key와 일치하는 요소의 인덱스를 반환한다. 일치하는 요소가 여러 개 있다면 무작위의 인덱스를 반환한다. 맨 앞의 인덱스나 어떤 특정한 인덱스를 반환하는 것이 아니다.
+ 
+ 검색에 실패한 경우 <br>
+ 반환값은 삽입 포인트를 x라고 할때 -x -1을 반환한다. 삽입 포인트는 검색하기 위해 지정한 key보다 큰 요소 중 첫 번째 요소의 인덱스이다. 만약 배열의 모든 요소가 key보다 작다면 배열의 길이를 삽입 포인트로 정한다.
+ 
+ ![231](https://user-images.githubusercontent.com/60682087/173361129-0f6809c5-57c7-4e1f-99ef-608abb47f4db.JPG)
+
+위의 배열에서 key가 4이면 삽입 포인트는 3이다. 즉 -4를 반환한다. 
+
 
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
