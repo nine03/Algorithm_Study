@@ -177,4 +177,5 @@ static int binSearch(int[] a,int n, int key) {
 위의 배열에서 key가 4이면 삽입 포인트는 3이다. 즉 -4를 반환한다. 
 
 
+
 - 这个项目是我为了重新学习Algorithm而做的项目（이 프로젝트는 내가 Algorithm를 다시 공부하기위해서 만든 프로젝트입니다.）
